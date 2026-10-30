@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ForeverQR: Free QR Code Generator That Never Expires (No Sign-up)</title>
+<meta name="description" content="Free QR code generator. Make QR codes that never expire for links, Google Forms, UPI payments, WhatsApp, WiFi and contact cards. Add your logo and colours, download PNG or SVG. No sign-up, no watermark.">
+<meta name="keywords" content="free QR code generator, QR code that never expires, static QR code, QR code with logo, UPI QR code generator, WhatsApp QR code, WiFi QR code, Google Form QR code, ForeverQR">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://foreverqr.github.io/">
+<meta name="theme-color" content="#0a0a0c">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ForeverQR">
+<meta property="og:url" content="https://foreverqr.github.io/">
+<meta property="og:title" content="ForeverQR: Free QR Code Generator That Never Expires">
+<meta property="og:description" content="Free QR codes for links, UPI, WhatsApp, WiFi and contact cards. Your logo and colours. No sign-up, no expiry, no paywall.">
+<meta property="og:image" content="https://foreverqr.github.io/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","@id":"https://foreverqr.github.io/#app","name":"ForeverQR","alternateName":["Forever QR","ForeverQR free QR code generator"],"url":"https://foreverqr.github.io/","description":"Free QR code generator for static QR codes that never expire: links, Google Forms, UPI payments, WhatsApp, WiFi and contact cards, with custom colours, logos and frames.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (works in the browser)","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"featureList":["QR codes that never expire","UPI payment QR","WhatsApp QR","WiFi QR","Contact card QR","Logo and custom colours","PNG up to 4096px","SVG download","Photo QR","Printable poster","Bulk QR (up to 50)"],"creator":{"@type":"Person","name":"Deepansh Deep","url":"https://deepansh-deep.github.io/"}},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is ForeverQR free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Making and downloading QR codes is free, with no sign-up and no watermark. Pro downloads (photo QR, poster, SVG, transparent PNG, bulk) are unlocked free by following an Instagram page or watching an 8-second preview."}},
+{"@type":"Question","name":"Do ForeverQR codes expire?","acceptedAnswer":{"@type":"Answer","text":"No. ForeverQR makes static QR codes: your link is written into the pattern itself, so the code keeps working for as long as your link does, even if this website disappears."}},
+{"@type":"Question","name":"Can I make a UPI payment QR code?","acceptedAnswer":{"@type":"Answer","text":"Yes. Enter your UPI ID, name and an optional amount. Anyone can scan it with a UPI app and pay you directly."}},
+{"@type":"Question","name":"Can I add my logo to the QR code?","acceptedAnswer":{"@type":"Answer","text":"Yes. Upload a PNG or JPG and it sits in the centre. Choose your colours, gradient, dot style and a Scan me frame."}},
+{"@type":"Question","name":"Is my data stored?","acceptedAnswer":{"@type":"Answer","text":"No. Codes are made in your browser. Nothing you type is sent to a server."}}
+]}]}
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Crect width=%2216%22 height=%2216%22 rx=%224%22 fill=%22%23d7ff3a%22/%3E%3Crect x=%223%22 y=%223%22 width=%224%22 height=%224%22 fill=%22%230a0a0c%22/%3E%3Crect x=%229%22 y=%223%22 width=%224%22 height=%224%22 fill=%22%230a0a0c%22/%3E%3Crect x=%223%22 y=%229%22 width=%224%22 height=%224%22 fill=%22%230a0a0c%22/%3E%3Crect x=%2210%22 y=%2210%22 width=%223%22 height=%223%22 fill=%22%230a0a0c%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0c;--bg2:#101013;--card:#141418;--card2:#1a1a1f;--line:#26262d;--line2:#33333c;
+  --ink:#f5f4f0;--mut:#9a99a3;--dim:#8a8994;
+  --acc:#d7ff3a;--acc-ink:#0a0a0c;--gold:#f2c86b;
+  --r:18px;--serif:"Instrument Serif",Georgia,serif;--sans:Inter,system-ui,-apple-system,Segoe UI,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+/* glow */
+.glow{position:fixed;inset:-20vh -10vw auto;height:70vh;pointer-events:none;z-index:0;
+  background:radial-gradient(40% 50% at 70% 30%,rgba(215,255,58,.10),transparent 70%),radial-gradient(35% 45% at 20% 10%,rgba(120,110,255,.10),transparent 70%)}
+main,nav,footer{position:relative;z-index:1}
+/* nav */
+nav{position:sticky;top:0;z-index:20;backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);background:rgba(10,10,12,.72);border-bottom:1px solid rgba(255,255,255,.06)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;letter-spacing:-.01em;font-size:17px}
+.brand small{font-weight:500;color:var(--mut);font-size:13px;margin-left:2px}
+.mark{width:28px;height:28px;border-radius:8px;background:var(--acc);display:grid;place-items:center}
+.links{display:flex;gap:28px;font-size:14px;color:var(--mut)}
+.links a{text-decoration:none}.links a:hover{color:var(--ink)}
+.navcta{font-size:13px;font-weight:600;text-decoration:none;padding:9px 14px;border-radius:999px;border:1px solid var(--line2)}
+.navcta:hover{border-color:var(--ink)}
+@media(max-width:820px){.links{display:none}}
+/* hero */
+.hero{padding:30px 0 6px;text-align:center}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:var(--mut);border:1px solid var(--line);padding:6px 12px 6px 8px;border-radius:999px;background:rgba(255,255,255,.02)}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 12px var(--acc)}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(30px,4.2vw,50px);line-height:1.04;letter-spacing:-.015em;margin:0 auto 10px;max-width:900px}
+h1 em{color:var(--acc);font-style:italic}
+.lead{max-width:680px;margin:0 auto;color:var(--mut);font-size:15.5px}
+.stats{display:flex;justify-content:center;gap:34px;margin:0 0 56px;flex-wrap:wrap;font-size:13px;color:var(--mut);text-align:center}
+@media(max-width:560px){.stats{gap:18px;font-size:12px}}
+.stats b{display:block;color:var(--ink);font-size:15px;font-weight:600}
+/* faq */
+.faq{margin-top:28px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:18px 0;font-size:17px;font-weight:600;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--acc);font-weight:500}
+.faq details[open] summary::after{content:"–"}
+.faq p{margin:0 0 18px;color:var(--mut);max-width:720px}
+/* app */
+.app{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:22px;margin:22px 0 64px;align-items:start}
+@media(max-width:980px){.app{grid-template-columns:1fr}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.tabs{display:flex;gap:4px;padding:8px;border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;border:0;background:transparent;color:var(--mut);font:500 13.5px var(--sans);padding:9px 14px;border-radius:10px;cursor:pointer;display:flex;align-items:center;gap:7px}
+.tab:hover{color:var(--ink);background:var(--card2)}
+.tab.on{background:var(--ink);color:var(--bg)}
+.sec{padding:22px;border-bottom:1px solid var(--line)}
+.sec:last-child{border-bottom:0}
+.sec h3{margin:0 0 14px;font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);display:flex;align-items:center;justify-content:space-between}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fields .full{grid-column:1/-1}
+@media(max-width:560px){.fields{grid-template-columns:1fr}}
+.f label{display:block;font-size:12.5px;color:var(--mut);margin-bottom:6px;font-weight:500}
+input[type=text],input[type=url],input[type=tel],input[type=email],input[type=number],input[type=password],textarea,select{
+  width:100%;background:var(--bg2);border:1px solid var(--line);color:var(--ink);border-radius:11px;padding:11px 13px;font:14.5px var(--sans);outline:none;transition:border-color .15s}
+input:focus,textarea:focus,select:focus{border-color:var(--acc)}
+textarea{min-height:84px;resize:vertical}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--mut) 50%),linear-gradient(135deg,var(--mut) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:34px}
+.seg{display:flex;background:var(--bg2);border:1px solid var(--line);border-radius:11px;padding:3px;gap:3px}
+.seg button{flex:1;border:0;background:transparent;color:var(--mut);font:500 13px var(--sans);padding:8px 6px;border-radius:8px;cursor:pointer}
+.seg button.on{background:var(--card2);color:var(--ink);box-shadow:0 0 0 1px var(--line2)}
+.swatches{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.sw{width:30px;height:30px;border-radius:50%;border:2px solid var(--card);box-shadow:0 0 0 1px var(--line2);cursor:pointer;padding:0}
+.sw.on{box-shadow:0 0 0 2px var(--acc)}
+.cpick{display:flex;align-items:center;gap:10px;background:var(--bg2);border:1px solid var(--line);border-radius:11px;padding:6px 10px 6px 6px}
+.cpick input{width:30px;height:30px;border:0;padding:0;background:none;cursor:pointer;border-radius:8px}
+.cpick input::-webkit-color-swatch-wrapper{padding:0}.cpick input::-webkit-color-swatch{border:0;border-radius:7px}
+.cpick span{font:500 12.5px var(--mono);color:var(--mut)}
+.toggle{display:flex;align-items:center;gap:10px;cursor:pointer;font-size:13.5px;color:var(--mut);user-select:none}
+.toggle input{display:none}
+.f label.toggle{display:flex;margin:0;height:100%;padding-top:26px}
+.f label.drop{display:flex;margin:0}
+.toggle b{width:36px;height:21px;border-radius:999px;background:var(--line2);position:relative;transition:.2s;flex:0 0 auto}
+.toggle b:after{content:"";position:absolute;top:3px;left:3px;width:15px;height:15px;border-radius:50%;background:var(--ink);transition:.2s}
+.toggle input:checked+b{background:var(--acc)}
+.toggle input:checked+b:after{left:18px;background:var(--acc-ink)}
+.drop{display:flex;align-items:center;gap:12px;border:1px dashed var(--line2);border-radius:12px;padding:12px;cursor:pointer;color:var(--mut);font-size:13.5px}
+.drop:hover{border-color:var(--mut)}
+.drop .thumb{width:44px;height:44px;border-radius:9px;background:var(--bg2) center/cover;border:1px solid var(--line);flex:0 0 auto;display:grid;place-items:center;color:var(--dim)}
+.drop .x{margin-left:auto;font-size:12px;color:var(--mut);background:none;border:0;cursor:pointer;text-decoration:underline}
+input[type=range]{width:100%;accent-color:var(--acc)}
+.pro{background:linear-gradient(180deg,rgba(242,200,107,.06),transparent 60%)}
+.protag{font:600 10.5px var(--sans);letter-spacing:.08em;color:#1a1408;background:linear-gradient(135deg,#f6d98c,#e0a943);padding:3px 8px;border-radius:999px}
+.procards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){.procards{grid-template-columns:1fr}}
+.pcard{border:1px solid var(--line);border-radius:14px;padding:14px;cursor:pointer;background:var(--bg2);text-align:left;color:var(--ink);font:inherit;transition:.15s}
+.pcard:hover{border-color:var(--line2)}
+.pcard.on{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset}
+.pcard b{display:block;font-size:14px;margin-bottom:3px}
+.pcard span{font-size:12.5px;color:var(--mut)}
+.prox{margin-top:14px;display:none}
+.prox.show{display:block}
+.credits{font-size:12.5px;color:var(--mut);display:flex;align-items:center;gap:8px;margin-top:14px}
+.credits b{color:var(--gold)}
+/* preview */
+.side{position:sticky;top:84px}
+.pv{padding:22px}
+.stage{border-radius:14px;background:
+  linear-gradient(45deg,#1b1b20 25%,transparent 25%),linear-gradient(-45deg,#1b1b20 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#1b1b20 75%),linear-gradient(-45deg,transparent 75%,#1b1b20 75%);
+  background-size:18px 18px;background-position:0 0,0 9px,9px -9px,-9px 0;background-color:#16161a;
+  display:grid;place-items:center;padding:26px;min-height:340px;border:1px solid var(--line)}
+.stage canvas{max-width:100%;max-height:430px;height:auto;border-radius:6px;box-shadow:0 24px 60px -20px rgba(0,0,0,.7)}
+.empty{color:var(--dim);font-size:14px;text-align:center}
+.meta{display:flex;justify-content:space-between;font:500 12px var(--mono);color:var(--dim);margin:14px 2px 16px}
+.meta .ok{color:var(--acc)}
+.meta .warn{color:#ff8f6b}
+.btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;border:0;border-radius:12px;padding:14px;font:600 14.5px var(--sans);cursor:pointer;transition:transform .1s,filter .15s}
+.btn:active{transform:scale(.985)}
+.btn.main{background:var(--acc);color:var(--acc-ink)}
+.btn.main:hover{filter:brightness(1.06)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line2);margin-top:10px}
+.btn.ghost:hover{border-color:var(--ink)}
+.btn:disabled{opacity:.35;cursor:default;transform:none}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.msg{min-height:20px;text-align:center;font-size:12.5px;color:var(--mut);margin-top:12px}
+.sizes{margin-bottom:12px}
+/* sections */
+.kicker{font:500 12px var(--mono);color:var(--acc);letter-spacing:.06em;text-transform:uppercase}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(36px,5vw,58px);line-height:1.02;letter-spacing:-.015em;margin:12px 0 16px}
+h2 em{font-style:italic;color:var(--acc)}
+.sub{color:var(--mut);max-width:560px;font-size:16px;margin:0}
+section.block{padding:90px 0;border-top:1px solid rgba(255,255,255,.06)}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:44px}
+@media(max-width:820px){.compare{grid-template-columns:1fr}}
+.cbox{border:1px solid var(--line);border-radius:var(--r);padding:28px;background:var(--card)}
+.cbox.good{border-color:rgba(215,255,58,.35);background:linear-gradient(180deg,rgba(215,255,58,.05),var(--card) 60%)}
+.cbox h4{margin:0 0 6px;font-size:18px}
+.cbox p{margin:0 0 18px;color:var(--mut);font-size:14px}
+.flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font:500 12.5px var(--mono)}
+.flow span{padding:7px 11px;border-radius:9px;background:var(--bg2);border:1px solid var(--line)}
+.flow .bad{border-color:rgba(255,120,90,.5);color:#ff9d80}
+.flow .gd{border-color:rgba(215,255,58,.45);color:var(--acc)}
+.flow i{color:var(--dim);font-style:normal}
+.cbox ul{margin:20px 0 0;padding:0;list-style:none;font-size:14px;color:var(--mut)}
+.cbox li{padding:7px 0;border-top:1px solid var(--line);display:flex;gap:10px}
+.cbox li:first-child{border-top:0}
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:44px}
+@media(max-width:820px){.feat{grid-template-columns:1fr}}
+.feat div{background:var(--bg);padding:28px}
+.feat .ic{width:38px;height:38px;border-radius:10px;border:1px solid var(--line2);display:grid;place-items:center;margin-bottom:18px;color:var(--acc)}
+.feat h5{margin:0 0 6px;font-size:15.5px}
+.feat p{margin:0;color:var(--mut);font-size:14px}
+.ventures{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+@media(max-width:980px){.ventures{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.ventures{grid-template-columns:1fr}}
+.v{position:relative;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r);padding:24px;text-decoration:none;background:var(--card);min-height:190px;transition:border-color .2s,transform .2s;overflow:hidden}
+.v:hover{border-color:var(--line2);transform:translateY(-3px)}
+.v .tg{font:500 11px var(--mono);color:var(--dim);text-transform:uppercase;letter-spacing:.06em}
+.v h4{font-family:var(--serif);font-weight:400;font-size:30px;margin:10px 0 6px;letter-spacing:-.01em}
+.v p{margin:0;color:var(--mut);font-size:14px;flex:1}
+.v .go{margin-top:18px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px}
+.v .go svg{transition:transform .2s}.v:hover .go svg{transform:translateX(4px)}
+.v.hl{background:linear-gradient(160deg,rgba(215,255,58,.10),var(--card) 55%);border-color:rgba(215,255,58,.3)}
+.v.hl .badge{position:absolute;top:20px;right:20px;font:600 11px var(--sans);background:var(--acc);color:var(--acc-ink);padding:4px 9px;border-radius:999px}
+.story{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center}
+@media(max-width:820px){.story{grid-template-columns:1fr}}
+.quote{font-family:var(--serif);font-size:clamp(26px,3vw,36px);line-height:1.2;font-style:italic}
+.quote span{color:var(--acc)}
+.sig{margin-top:22px;display:flex;align-items:center;gap:12px;color:var(--mut);font-size:14px}
+.sig b{color:var(--ink);display:block}
+.av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--acc),#7d6bff);display:grid;place-items:center;font-weight:700;color:var(--bg)}
+footer{border-top:1px solid rgba(255,255,255,.06);padding:36px 0 50px;color:var(--dim);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--ink)}
+/* modal */
+.modal{position:fixed;inset:0;z-index:50;background:rgba(5,5,7,.78);backdrop-filter:blur(8px);display:none;place-items:center;padding:20px}
+.modal.show{display:grid}
+.mbox{width:100%;max-width:440px;background:var(--card);border:1px solid var(--line2);border-radius:22px;overflow:hidden;animation:pop .25s ease}
+@keyframes pop{from{transform:translateY(10px) scale(.98);opacity:0}}
+.mhead{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);font-size:12.5px;color:var(--mut)}
+.ring{font:600 13px var(--mono);color:var(--gold)}
+.ad{padding:30px 26px;text-align:left;background:radial-gradient(80% 80% at 100% 0,rgba(215,255,58,.12),transparent 60%)}
+.ad .tg{font:500 11px var(--mono);color:var(--dim);text-transform:uppercase;letter-spacing:.06em}
+.ad h4{font-family:var(--serif);font-weight:400;font-size:40px;margin:8px 0 8px;line-height:1}
+.ad p{color:var(--mut);margin:0 0 18px}
+.ad a{font-size:13.5px;font-weight:600}
+.mfoot{padding:16px 20px 20px}
+.bar{height:3px;background:var(--line);border-radius:2px;overflow:hidden;margin-bottom:16px}
+.bar i{display:block;height:100%;width:0;background:var(--gold);transition:width 1s linear}
+.mclose{background:none;border:0;color:var(--mut);font-size:13px;cursor:pointer;margin-top:10px;width:100%}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+/* pro extras */
+.prorow{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--bg2)}
+.prorow .toggle{padding:0}
+.prorow small{color:var(--dim);font-size:12px}
+.procards.three{grid-template-columns:repeat(3,1fr)}
+@media(max-width:700px){.procards.three{grid-template-columns:1fr}}
+.btn .ptag{font:700 10px var(--sans);letter-spacing:.08em;color:#1a1408;background:linear-gradient(135deg,#f6d98c,#e0a943);padding:2px 6px;border-radius:999px}
+.bulkinfo{font-size:12.5px;color:var(--mut);margin-top:8px}
+/* sponsor modal */
+.mbox{max-width:480px;max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);overflow:auto;overscroll-behavior:contain}
+.ad{padding:0;background:none}
+.ad .adimg{display:block;width:100%;aspect-ratio:2/1;object-fit:cover;object-position:50% 12%;border-bottom:1px solid var(--line)}
+.btn.follow span{display:inline}
+@media(max-height:760px){.ad .adimg{aspect-ratio:3/1}.ad .adtxt{padding-top:14px}.ad h4{font-size:28px}}
+.ad .adtxt{padding:20px 22px 6px}
+.ad h4{font-size:34px;margin:6px 0 6px}
+.ad .facts{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+.ad .facts span{font-size:12px;color:var(--ink);border:1px solid var(--line2);border-radius:999px;padding:4px 10px}
+.ad .adlink{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:13.5px;color:var(--gold);text-decoration:none}
+.ad .adlink:hover{text-decoration:underline}
+.ways{display:grid;gap:10px;margin-bottom:12px}
+.btn.follow{background:transparent;color:var(--ink);border:1px solid var(--gold)}
+.btn.follow:hover{background:rgba(242,200,107,.08)}
+.creator{display:flex;align-items:center;gap:10px;padding:12px 22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--mut)}
+.creator a{color:var(--ink);font-weight:600;text-decoration:none}
+.creator a:hover{text-decoration:underline}
+.creator .av{width:30px;height:30px;font-size:12px;flex:0 0 auto}
+/* sponsor strip */
+.sponsor{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--card);margin:0 0 100px;text-decoration:none}
+.sponsor img{width:100%;height:100%;object-fit:cover;display:block;min-height:240px}
+.sponsor .sp{padding:30px 32px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+.sponsor .sp .tg{font:500 11px var(--mono);color:var(--dim);text-transform:uppercase;letter-spacing:.06em}
+.sponsor h3{font-family:var(--serif);font-weight:400;font-size:clamp(32px,4vw,46px);line-height:1;margin:0}
+.sponsor h3 em{color:var(--gold)}
+.sponsor p{margin:0;color:var(--mut)}
+.sponsor .go{font-weight:600;font-size:14px;color:var(--gold);display:flex;align-items:center;gap:6px;margin-top:6px}
+.sponsor:hover .go svg{transform:translateX(4px)}.sponsor .go svg{transition:transform .2s}
+@media(max-width:820px){.sponsor{grid-template-columns:1fr}.sponsor img{min-height:0;aspect-ratio:720/451}}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top">
+    <span class="mark"><svg width="16" height="16" viewBox="0 0 16 16"><rect x="1" y="1" width="6" height="6" rx="1.5" fill="none" stroke="#0a0a0c" stroke-width="2"/><rect x="9" y="1" width="6" height="6" rx="1.5" fill="none" stroke="#0a0a0c" stroke-width="2"/><rect x="1" y="9" width="6" height="6" rx="1.5" fill="none" stroke="#0a0a0c" stroke-width="2"/><rect x="10" y="10" width="2.5" height="2.5" fill="#0a0a0c"/><rect x="13" y="13" width="2" height="2" fill="#0a0a0c"/></svg></span>
+    ForeverQR <small>by Deepansh</small>
+  </a>
+  <div class="links"><a href="#create">Create</a><a href="#why">Why it never expires</a><a href="#features">Features</a><a href="#faq">FAQ</a><a href="https://deepansh-deep.github.io/">Deepansh Deep</a></div>
+  <a class="navcta" href="#create">Make a QR</a>
+</div></nav>
+
+<main id="top">
+<div class="wrap">
+  <header class="hero">
+    <h1>Free QR code generator. <em>Never</em> expires.</h1>
+    <p class="lead">Links, Google Forms, UPI, WhatsApp, WiFi and contact cards, in your colours with your logo. No sign-up, no watermark, free forever.</p>
+  </header>
+
+  <div class="app" id="create">
+    <div class="panel">
+      <div class="tabs" id="tabs"></div>
+      <div class="sec"><h3>Content</h3><div class="fields" id="fields"></div></div>
+
+      <div class="sec">
+        <h3>Style</h3>
+        <div class="fields">
+          <div class="f"><label>Body</label><div class="seg" data-k="body"><button data-v="square" class="on">Square</button><button data-v="rounded">Rounded</button><button data-v="dots">Dots</button></div></div>
+          <div class="f"><label>Corners</label><div class="seg" data-k="eye"><button data-v="square" class="on">Square</button><button data-v="rounded">Rounded</button><button data-v="circle">Circle</button></div></div>
+          <div class="f full"><label>Presets</label><div class="swatches" id="presets"></div></div>
+          <div class="f"><label for="fg">Code color</label><div class="cpick"><input type="color" id="fg" value="#0a0a0c"><span id="fgv">#0A0A0C</span></div></div>
+          <div class="f"><label for="bg">Background</label><div class="cpick"><input type="color" id="bg" value="#ffffff"><span id="bgv">#FFFFFF</span></div></div>
+          <div class="f"><label class="toggle"><input type="checkbox" id="grad"><b></b>Gradient</label></div>
+          <div class="f" id="g2wrap" style="display:none"><div class="cpick"><input type="color" id="fg2" value="#5b3cff" aria-label="Second gradient color"><span id="fg2v">#5B3CFF</span></div></div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <h3>Logo & frame</h3>
+        <div class="fields">
+          <div class="f full">
+            <label class="drop" id="logoDrop"><span class="thumb" id="logoThumb"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span><span id="logoTxt">Add your logo in the center (PNG, JPG)</span><button class="x" id="logoX" style="display:none" type="button">Remove</button><input type="file" id="logoIn" accept="image/*" hidden></label>
+          </div>
+          <div class="f"><label>Frame</label><div class="seg" data-k="frame"><button data-v="none" class="on">None</button><button data-v="bottom">Label</button><button data-v="top">Top</button></div></div>
+          <div class="f"><label for="ftext">Frame text</label><input type="text" id="ftext" value="SCAN ME" maxlength="28"></div>
+          <div class="f full"><label>Error correction <span style="color:var(--dim)">(higher survives scratches and logos)</span></label><div class="seg" data-k="ec"><button data-v="L">Low</button><button data-v="M" class="on">Medium</button><button data-v="Q">High</button><button data-v="H">Max</button></div></div>
+        </div>
+      </div>
+
+      <div class="sec pro">
+        <h3>Pro studio <span class="protag">PRO</span></h3>
+        <div class="procards three">
+          <button class="pcard" data-pro="photo" type="button"><b>Photo QR</b><span>Your photo becomes the QR. For posters, invites and profiles.</span></button>
+          <button class="pcard" data-pro="poster" type="button"><b>Print poster</b><span>A ready-to-print A6 card with a title and instructions.</span></button>
+          <button class="pcard" data-pro="bulk" type="button"><b>Bulk QR</b><span>Up to 50 links at once, in your style, as one ZIP.</span></button>
+        </div>
+        <div class="prox" id="photoX">
+          <div class="fields" style="margin-top:2px">
+            <div class="f full"><label class="drop" id="photoDrop"><span class="thumb" id="photoThumb"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg></span><span id="photoTxt">Choose a photo (faces and bold shapes work best)</span><input type="file" id="photoIn" accept="image/*" hidden></label></div>
+            <div class="f"><label>Dot size <span id="dsv" style="color:var(--dim)">38%</span></label><input type="range" id="dot" min="26" max="60" value="38"></div>
+            <div class="f"><label>Photo contrast <span id="pcv" style="color:var(--dim)">115%</span></label><input type="range" id="pcon" min="80" max="160" value="115"></div>
+          </div>
+        </div>
+        <div class="prox" id="posterX">
+          <div class="fields">
+            <div class="f"><label>Poster title</label><input type="text" id="ptitle" value="Fill our form" maxlength="40"></div>
+            <div class="f"><label>Subtitle</label><input type="text" id="psub" value="Takes less than a minute" maxlength="60"></div>
+          </div>
+        </div>
+        <div class="prox" id="bulkX">
+          <div class="fields">
+            <div class="f full"><label>Links or text, one per line (up to 50)</label><textarea id="bulkIn" placeholder="https://forms.gle/…&#10;https://instagram.com/…&#10;upi://pay?pa=…"></textarea>
+              <div class="bulkinfo" id="bulkInfo">Every line becomes its own QR code, with the style above. Download gives you one ZIP.</div></div>
+            <div class="f"><label>File name start</label><input type="text" id="bulkName" value="qr" maxlength="24"></div>
+          </div>
+        </div>
+        <div class="prorow"><label class="toggle"><input type="checkbox" id="transp"><b></b>Transparent background</label><small>PNG with no background, for your own designs</small></div>
+        <div class="credits">Pro unlocks: <b id="cred">0</b> · One unlock = one Pro download. Free to get: follow us once, or watch a short trip preview.</div>
+      </div>
+    </div>
+
+    <aside class="side">
+      <div class="panel pv">
+        <div class="stage" id="stage"><div class="empty">Your QR appears here</div></div>
+        <div class="meta"><span id="mInfo">Static · never expires</span><span id="mScan"></span></div>
+        <div class="f sizes"><label>Download size</label><div class="seg" data-k="size"><button data-v="512">512</button><button data-v="1024" class="on">1024</button><button data-v="2048">2048</button><button data-v="4096">4096</button></div></div>
+        <button class="btn main" id="dl" disabled><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 4v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg><span id="dlTxt">Download PNG</span></button>
+        <div class="row2"><button class="btn ghost" id="svg" disabled>SVG <span class="ptag">PRO</span></button><button class="btn ghost" id="cp" disabled>Copy image</button></div>
+        <div class="msg" id="msg"></div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<div class="wrap"><div class="stats reveal"><div><b>₹0</b>forever</div><div><b>7</b>QR types</div><div><b>4096px</b>print quality</div><div><b>100%</b>in your browser</div></div></div>
+
+<div class="wrap"><a class="sponsor reveal" id="sponsor" href="https://strangersbuddies.github.io/" target="_blank" rel="noopener">
+  <img src="sb-ad.jpg" alt="Strangersbuddies trip poster: Puri, Odisha, 12 to 14 February 2027" loading="lazy" width="720" height="451">
+  <div class="sp"><span class="tg">Sponsored · Strangersbuddies</span>
+    <h3>Puri, <em>Odisha</em></h3>
+    <p>Come as strangers. Return as buddies. 3 days by the sea, 12 to 14 February 2027, for ages 18 to 25. Packages from ₹7,999.</p>
+    <span class="go">See the trip <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14m-6-6l6 6-6 6"/></svg></span></div>
+</a></div>
+
+<section class="block" id="why"><div class="wrap">
+  <div class="reveal"><span class="kicker">Why it never expires</span>
+  <h2>Most "free" QR sites<br>rent you <em>your own link.</em></h2>
+  <p class="sub">They hand you a dynamic code that points to their server, which then forwards to your link. When the trial ends, they cut the forwarding and charge you to turn it back on.</p></div>
+  <div class="compare">
+    <div class="cbox reveal"><h4>Dynamic QR (the trap)</h4><p>Scans go through a middleman you don't control.</p>
+      <div class="flow"><span>Scan</span><i>→</i><span class="bad">their-server.com/x7k</span><i>→</i><span>your link</span></div>
+      <ul><li>✕ Dies when the trial ends</li><li>✕ Dies if the company shuts down</li><li>✕ Printed posters become useless</li></ul></div>
+    <div class="cbox good reveal"><h4>Static QR (ForeverQR)</h4><p>Your link is written into the pattern itself.</p>
+      <div class="flow"><span>Scan</span><i>→</i><span class="gd">your link</span></div>
+      <ul><li>✓ Works for as long as your link works</li><li>✓ Works even if this site disappears</li><li>✓ No account, no tracking, no fees</li></ul></div>
+  </div>
+</div></section>
+
+<section class="block" id="features"><div class="wrap">
+  <div class="reveal"><span class="kicker">Built for real use</span>
+  <h2>Everything you'd <em>pay for</em>,<br>without paying.</h2></div>
+  <div class="feat reveal">
+    <div><div class="ic">₹</div><h5>UPI payment QR</h5><p>Enter a UPI ID and amount. Customers scan with any UPI app and pay you directly.</p></div>
+    <div><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5a10 10 0 0114 0M8.5 16a5 5 0 017 0M12 19.5h.01M2 9a15 15 0 0120 0"/></svg></div><h5>WiFi QR</h5><p>Guests scan once and join. No more spelling out passwords.</p></div>
+    <div><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 01-13.3 7.9L3 21l1.1-4.6A9 9 0 1121 12z"/></svg></div><h5>WhatsApp chat</h5><p>Opens a chat with your number and a pre-typed message.</p></div>
+    <div><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg></div><h5>Contact card</h5><p>One scan saves your name, number, email and website to their phone.</p></div>
+    <div><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="3"/></svg></div><h5>Your brand on it</h5><p>Your colors, gradient, logo, rounded dots and a "Scan me" frame.</p></div>
+    <div><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.6 5.6L20 9.3l-4 4 1 5.7-5-2.8-5 2.8 1-5.7-4-4 5.4-.7z"/></svg></div><h5>Pro, unlocked free</h5><p>Photo QR, print posters, SVG vectors, transparent PNGs and 50 codes at once. Unlock by following or watching a short trip preview.</p></div>
+  </div>
+</div></section>
+
+<section class="block"><div class="wrap story reveal">
+  <div>
+    <span class="kicker">Why I built this</span>
+    <p class="quote">"A QR site held my Google Form <span>hostage</span> and asked me to pay to get it back. So I built one that can't."</p>
+    <div class="sig"><span class="av">D</span><span><b>Deepansh Deep</b>Builder · <a href="https://instagram.com/deepanshverse" target="_blank" rel="noopener">@deepanshverse</a></span></div>
+  </div>
+  <div><p class="sub" style="font-size:16px">ForeverQR is one of the things I make. I build products, start communities and run events. If this saved you money, look at the rest below.</p></div>
+</div></section>
+
+<section class="block" id="faq"><div class="wrap">
+  <div class="reveal"><span class="kicker">Questions</span>
+  <h2>Free QR codes, <em>answered.</em></h2></div>
+  <div class="faq reveal">
+    <details><summary>Is ForeverQR free?</summary><p>Yes. Making and downloading QR codes is free, with no sign-up and no watermark. Pro downloads (photo QR, poster, SVG, transparent PNG, bulk) are unlocked free by following an Instagram page or watching an 8-second preview.</p></details>
+    <details><summary>Do ForeverQR codes expire?</summary><p>No. ForeverQR makes static QR codes: your link is written into the pattern itself, so the code keeps working for as long as your link does, even if this website disappears.</p></details>
+    <details><summary>Can I make a UPI payment QR code?</summary><p>Yes. Enter your UPI ID, name and an optional amount. Anyone can scan it with a UPI app and pay you directly.</p></details>
+    <details><summary>Can I add my logo to the QR code?</summary><p>Yes. Upload a PNG or JPG and it sits in the centre. Choose your colours, gradient, dot style and a "Scan me" frame.</p></details>
+    <details><summary>Is my data stored?</summary><p>No. Codes are made in your browser. Nothing you type is sent to a server.</p></details>
+  </div>
+</div></section>
+
+<section class="block" id="more"><div class="wrap">
+  <div class="reveal"><span class="kicker">More from Deepansh</span>
+  <h2>Other things <em>I'm building.</em></h2></div>
+  <div class="ventures" id="ventures"></div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>© <span id="yr"></span> ForeverQR by Deepansh Deep. Codes you make here are yours, free forever.</span>
+  <span>Made by Deepansh Deep · <a href="https://instagram.com/deepanshverse" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.linkedin.com/in/deepansh-deep-69a4a8268/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/Deepansh-Deep" target="_blank" rel="noopener">GitHub</a> · <a href="https://deepansh-deep.github.io/" target="_blank" rel="noopener">Website</a></span>
+</div></footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="adh"><div class="mbox">
+  <div class="mhead"><span>Sponsored · unlock 1 Pro QR free</span><span class="ring" id="ring">8s</span></div>
+  <div class="ad" id="ad">
+    <img class="adimg" src="sb-ad.jpg" alt="Strangersbuddies trip poster: Puri, Odisha, 12 to 14 February 2027" width="720" height="451">
+    <div class="adtxt">
+      <div class="tg">Strangersbuddies · Trip 01</div>
+      <h4 id="adh">Puri, Odisha</h4>
+      <p>Come as strangers. Return as buddies.</p>
+      <div class="facts"><span>12 to 14 Feb 2027</span><span>3 days, 2 nights</span><span>Ages 18 to 25</span><span>From ₹7,999</span></div>
+      <a class="adlink" href="https://strangersbuddies.github.io/" target="_blank" rel="noopener">See the trip →</a>
+    </div>
+  </div>
+  <div class="mfoot"><div class="bar"><i id="barI"></i></div>
+    <div class="ways">
+      <button class="btn follow" id="follow" type="button"><span>Follow <b id="followWho">@strangersbuddies13</b> on Instagram and unlock now</span></button>
+      <button class="btn main" id="claim" disabled>Unlock in 8s</button>
+    </div>
+    <button class="mclose" id="mclose">Not now</button></div>
+  <div class="creator"><span class="av">D</span><span>ForeverQR is made by <a href="https://instagram.com/deepanshverse" target="_blank" rel="noopener">Deepansh Deep</a>, the original creator. Follow him on Instagram for what he builds next.</span></div>
+</div></div>
+
