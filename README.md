@@ -1,15 +1,7 @@
 # ForeverQR
 
-Free QR code generator. Static QR codes that never expire: links, Google Forms, UPI, WhatsApp, WiFi and contact cards, with your colours and logo.
+Free QR code generator. Static QR codes that never expire. Live at https://foreverqr.github.io. Made by Deepansh Deep.
 
-Live at https://foreverqr.github.io. Made by [Deepansh Deep](https://deepansh-deep.github.io).
+© 2026 Deepansh Deep. All rights reserved. The ForeverQR name, design, text and code are not licensed for reuse. You may not copy, modify, redistribute or host them, in whole or in part, without written permission.
 
-## Editing
-
-The page is one self-contained `index.html`, built from the parts in `src/`:
-
-- `src/head.html`: page text, styles and SEO tags
-- `src/app.config.js`: links, the sponsor and the "More from Deepansh" list
-- `src/lib.js`: QR encoder (qrcode-generator by Kazuhiko Arase, MIT licence)
-
-After editing, run `./build.sh` and commit `index.html`.
+ForeverQR includes qrcode-generator by Kazuhiko Arase, used under the MIT licence. Its copyright and licence notice is kept inside index.html.
